@@ -1,0 +1,57 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * { box-sizing: border-box; }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: #fafaf8;
+    color: #1a1a1a;
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-brand-500 hover:bg-brand-600 text-white font-semibold px-6 py-3 rounded-xl transition-all duration-200 active:scale-95 shadow-md hover:shadow-lg;
+  }
+  .btn-secondary {
+    @apply bg-earth-100 hover:bg-earth-200 text-earth-800 font-semibold px-6 py-3 rounded-xl transition-all duration-200 active:scale-95;
+  }
+  .btn-ghost {
+    @apply text-earth-700 hover:bg-earth-100 font-medium px-4 py-2 rounded-lg transition-all duration-200;
+  }
+  .card {
+    @apply bg-white rounded-2xl shadow-sm border border-earth-100 overflow-hidden;
+  }
+  .input-field {
+    @apply w-full border border-earth-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-brand-400 focus:border-transparent bg-white;
+  }
+}
+
+@layer utilities {
+  .gradient-brand { background: linear-gradient(135deg, #ff7a0f 0%, #c74606 100%); }
+  .gradient-earth { background: linear-gradient(135deg, #9d7744 0%, #6c4c30 100%); }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-up { animation: fadeUp 0.5s ease both; }
+.animate-fade-up-delay-1 { animation: fadeUp 0.5s ease 0.1s both; }
+.animate-fade-up-delay-2 { animation: fadeUp 0.5s ease 0.2s both; }
+.animate-fade-up-delay-3 { animation: fadeUp 0.5s ease 0.3s both; }
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.skeleton {
+  background: linear-gradient(90deg, #f0ebe3 25%, #e5ddd0 50%, #f0ebe3 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
